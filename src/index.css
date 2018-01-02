@@ -13,3 +13,13 @@ body {
   margin-bottom: 10px !important;
 }
 
+.col-content {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
+.row-content {
+  display: flex !important;
+  flex-direction: column;
+}

@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 
+import './note-item.css';
+
 // Material Components
 import { Card } from 'material-ui/Card';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+
 
 class NoteItem extends Component {
 
@@ -9,10 +16,21 @@ class NoteItem extends Component {
     return (
       <div className="col-12 col-sm-12 col-md-6 col-lg-4">
         <Card className="card">
-          <div>{this.props.note.id}</div>
-          <div>{this.props.note.title}</div>
+
+          <div className="col-content">
+            <div id="note-title">{this.props.note.title}</div>
+            <IconMenu id="note-menu"
+              iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+              anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
+              targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+            >
+              <MenuItem primaryText="Checkout" onClick={() => {this.props.onCheckout()}}/>
+              <MenuItem primaryText="Delete" onClick={() => {this.props.onDelete()}}/>
+            </IconMenu>
+
+          </div>
           <div>{this.props.note.body}</div>
-          <div>{this.props.note.complete.toString()}</div>
+          <div>{this.props.note.complete}</div>
         </Card>
       </div>
     );

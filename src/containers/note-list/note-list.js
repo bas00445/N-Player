@@ -15,11 +15,17 @@ import NoteItem from '../../components/note-item/note-item';
 
 class NoteList extends Component {
 
+  componentWillReceiveProps(nextProps) {
+    console.log('Note-list: ', nextProps);
+  }
+
   renderNotes() {
     return this.props.notes.map((note) => {
 
       return (
-        <NoteItem note={note} key={note.id}/>
+        <NoteItem note={note} key={note.id}
+          onCheckout={() => { this.props.checkoutNote(note.id) }}
+          onDelete={() => { this.props.deleteNote(note.id) }} />
       );
     })
   }

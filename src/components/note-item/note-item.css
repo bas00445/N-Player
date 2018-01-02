@@ -1,0 +1,11 @@
+#note-title {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+#note-menu {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
