@@ -4,6 +4,13 @@ import TextField from 'material-ui/TextField';
 import './note-creator.css';
 import { Card } from 'material-ui/Card';
 
+// Redux
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+// Actions
+import { addNote } from '../../actions/index';
+
 class NoteCreator extends Component {
 
   constructor(props) {
@@ -11,9 +18,10 @@ class NoteCreator extends Component {
     this.state = {
       titleValue: '',
       bodyValue: '',
+      noteId: 0,
     }
   }
-  
+
   handleTitleValue(event) {
     this.setState({
       titleValue: event.target.value
@@ -28,6 +36,19 @@ class NoteCreator extends Component {
 
   onAddNote() {
     console.log(this.state.titleValue, this.state.bodyValue);
+    this.props.addNote({
+      title: this.state.titleValue,
+      body: this.state.bodyValue,
+      id: this.state.noteId
+    })
+
+    this.setState({
+      noteId: ++this.state.noteId
+    })
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('Next props:', nextProps);
   }
 
   render() {
@@ -39,20 +60,20 @@ class NoteCreator extends Component {
               <div>
                 Create a Note
               </div>
-              <div style={{marginBottom: 10}}>
-                <TextField onChange={(event) => {this.handleTitleValue(event)}}
+              <div style={{ marginBottom: 10 }}>
+                <TextField onChange={(event) => { this.handleTitleValue(event) }}
                   className="full-width"
                   floatingLabelText="Input a title"
                   value={this.state.titleValue}
                 />
-                <TextField onChange={(event) => {this.handleBodyValue(event)}}
+                <TextField onChange={(event) => { this.handleBodyValue(event) }}
                   className="full-width"
                   floatingLabelText="Input a body"
                 />
               </div>
               <div id="add-btn-container">
-                <RaisedButton onClick={() => {this.onAddNote()}}
-                label="Add" primary={true} />
+                <RaisedButton onClick={() => { this.onAddNote() }}
+                  label="Add" primary={true} />
               </div>
             </Card>
           </div>
@@ -62,4 +83,14 @@ class NoteCreator extends Component {
   }
 }
 
-export default NoteCreator;
+function mapStateToProps(state) {
+  return {
+    notes: state.notes
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({addNote: addNote}, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NoteCreator);
