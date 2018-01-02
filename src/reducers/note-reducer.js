@@ -5,18 +5,11 @@ export default function (state = notes, action) {
     case 'ADD_NOTE':
       return [...state, action.payload];
       break;
-    case 'DELETE_NOTE':
-      return state.map((note) => {
-        if (note.id !== action.payload) {
-          return note;
-        }
-        else {
-          const note = note;
-          delete state[note.id];
-          return note;
-        }
-      });
-      break;
+    case 'DELETE_NOTE': {
+      const newState = Object.assign([], state);
+      newState.splice(action.payload, 1);
+      return newState;
+    } break;
     case 'CHECKOUT_NOTE':
       return state.map((note) => {
         if (note.id !== action.payload) {

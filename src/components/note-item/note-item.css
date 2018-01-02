@@ -1,11 +1,12 @@
-#note-title {
-  display: flex;
-  flex: 1;
-  justify-content: flex-start;
+.note-title {
+  overflow-wrap: break-word;
+  overflow: hidden;
+
+  width:95%;
 }
 
-#note-menu {
-  display: flex;
-  flex: 1;
-  justify-content: flex-end;
+.note-menu {
+  position: absolute !important;
+  right: 5px;
+  top: 5px;
 }

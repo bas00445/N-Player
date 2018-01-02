@@ -17,20 +17,18 @@ class NoteItem extends Component {
       <div className="col-12 col-sm-12 col-md-6 col-lg-4">
         <Card className="card">
 
-          <div className="col-content">
-            <div id="note-title">{this.props.note.title}</div>
-            <IconMenu id="note-menu"
-              iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
-              anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
-              targetOrigin={{ horizontal: 'left', vertical: 'top' }}
-            >
-              <MenuItem primaryText="Checkout" onClick={() => {this.props.onCheckout()}}/>
-              <MenuItem primaryText="Delete" onClick={() => {this.props.onDelete()}}/>
-            </IconMenu>
+          <div className="note-title">{this.props.note.title}</div>
+          <IconMenu className="note-menu"
+            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+            anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
+            targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+          >
+            <MenuItem primaryText="Checkout" onClick={() => { this.props.onCheckout() }} />
+            <MenuItem primaryText="Delete" onClick={() => { this.props.onDelete() }} />
+          </IconMenu>
 
-          </div>
           <div>{this.props.note.body}</div>
-          <div>{this.props.note.complete}</div>
+          <div>{this.props.note.complete.toString()}</div>
         </Card>
       </div>
     );
