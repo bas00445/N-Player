@@ -10,6 +10,7 @@ import allReducers from './reducers';
 // Component 
 import NoteCreator from './containers/note-creator/note-creator';
 import NoteFilter from './containers/note-filter/note-filter';
+import NoteList from './containers/note-list/note-list';
 
 const myStore = createStore(allReducers);
 
@@ -21,6 +22,7 @@ class App extends Component {
           <div className={"container"}>
             <NoteCreator />
             <NoteFilter />
+            <NoteList />
           </div >
         </Provider>
       </MuiThemeProvider>

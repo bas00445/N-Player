@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+
+import './note-creator.css';
+
+// Material Components
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import './note-creator.css';
 import { Card } from 'material-ui/Card';
 
 // Redux
@@ -35,15 +38,15 @@ class NoteCreator extends Component {
   }
 
   onAddNote() {
-    console.log(this.state.titleValue, this.state.bodyValue);
     this.props.addNote({
       title: this.state.titleValue,
       body: this.state.bodyValue,
-      id: this.state.noteId
+      id: this.state.noteId,
+      complete: false
     })
 
     this.setState({
-      noteId: ++this.state.noteId
+      noteId: this.state.noteId + 1
     })
   }
 

@@ -7,8 +7,8 @@ class NoteFilter extends Component {
 
   render() {
     return (
-      <div className="container ">
-      <Card className="full-width note-filter-container">
+      <div className="container">
+      <Card className="full-width note-filter-container card">
         <div className="container">
           <div className="row">
 
