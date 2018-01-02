@@ -10,5 +10,6 @@ body {
 
 .card {
   padding: 20px 30px !important;
+  margin-bottom: 10px !important;
 }
 

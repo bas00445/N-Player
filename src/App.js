@@ -3,17 +3,19 @@ import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // Component 
-import NoteCreator from './containers/note-creator';
+import NoteCreator from './containers/note-creator/note-creator';
+import NoteFilter from './containers/note-filter/note-filter';
 
 class App extends Component {
   render() {
     return (
-      <div className={"container"}>
-        <MuiThemeProvider>
+      <MuiThemeProvider>
+        <div className={"container"}>
           <NoteCreator />
-        </MuiThemeProvider>
+          <NoteFilter />
+        </div >
+      </MuiThemeProvider>
 
-      </div >
     );
   }
 }
