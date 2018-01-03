@@ -23,3 +23,7 @@ body {
   display: flex !important;
   flex-direction: column;
 }
+
+#root {
+  background-color: #fafafa;
+}
