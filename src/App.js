@@ -7,6 +7,9 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import allReducers from './reducers';
 
+// Material Components
+import AppBar from 'material-ui/AppBar';
+
 // Component 
 import NoteCreator from './containers/note-creator/note-creator';
 import NoteFilter from './containers/note-filter/note-filter';
@@ -19,11 +22,17 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <Provider store={myStore}>
-          <div className={"container app-container"}>
-            <NoteCreator />
-            <NoteFilter />
-            <NoteList />
-          </div >
+          <div>
+            <AppBar
+              showMenuIconButton={false}
+              title="Redux Todo"
+            />
+            <div className={"container app-container"}>
+              <NoteCreator />
+              <NoteFilter />
+              <NoteList />
+            </div >
+          </div>
         </Provider>
       </MuiThemeProvider>
 
