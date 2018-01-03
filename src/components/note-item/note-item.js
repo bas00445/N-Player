@@ -31,7 +31,7 @@ class NoteItem extends Component {
             <MenuItem primaryText="Delete" onClick={() => { this.props.onDelete() }} />
           </IconMenu>
 
-          <div class="note-body">{this.props.note.body}</div>
+          <div className="note-body">{this.props.note.body}</div>
           {/* <div>{this.props.note.complete.toString()}</div> */}
         </Card>
       </div>
