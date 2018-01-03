@@ -19,7 +19,7 @@ class NoteItem extends Component {
   render() {
     return (
       <div className="col-12 col-sm-12 col-md-6 col-lg-4">
-        <Card className="card">
+        <Card className={"custom-card " + (this.props.note.complete == true ? 'complete-todo': 'inComplete-todo')}>
           
           <h5 className="note-title">{this.props.note.title}</h5>
           <IconMenu className="note-menu"
@@ -31,8 +31,8 @@ class NoteItem extends Component {
             <MenuItem primaryText="Delete" onClick={() => { this.props.onDelete() }} />
           </IconMenu>
 
-          <div>{this.props.note.body}</div>
-          <div>{this.props.note.complete.toString()}</div>
+          <div class="note-body">{this.props.note.body}</div>
+          {/* <div>{this.props.note.complete.toString()}</div> */}
         </Card>
       </div>
     );

@@ -1,7 +1,6 @@
-.note-title {
+.note-title, .note-body {
   overflow-wrap: break-word;
   overflow: hidden;
-
   width:95%;
 }
 
@@ -9,4 +8,24 @@
   position: absolute !important;
   right: 5px;
   top: 5px;
+}
+
+.complete-todo {
+  background-color: #b3ffd9 !important;
+}
+
+.inComplete-todo {
+  background-color: #fff0b3 !important;
+}
+
+
+@keyframes fade-in {
+  from {opacity: 0};
+  to {opacity: 1};
+}
+
+.custom-card {
+  padding: 20px 30px !important;
+  margin-bottom: 10px !important;
+  animation: fade-in 1s;
 }

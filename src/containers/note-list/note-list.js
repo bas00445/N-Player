@@ -20,14 +20,35 @@ class NoteList extends Component {
   }
 
   renderNotes() {
-    return this.props.notes.map((note) => {
-
-      return (
-        <NoteItem note={note} key={note.id}
-          onCheckout={() => { this.props.checkoutNote(note.id) }}
-          onDelete={() => { this.props.deleteNote(note) }} />
-      );
-    })
+    if (this.props.filter == 'all') {
+      return this.props.notes.map((note) => {
+        return (
+          <NoteItem note={note} key={note.id}
+            onCheckout={() => { this.props.checkoutNote(note.id) }}
+            onDelete={() => { this.props.deleteNote(note) }} />
+        );
+      })
+    } else if (this.props.filter == 'completed') {
+      return this.props.notes.map((note) => {
+        if (note.complete == true) {
+          return (
+            <NoteItem note={note} key={note.id}
+              onCheckout={() => { this.props.checkoutNote(note.id) }}
+              onDelete={() => { this.props.deleteNote(note) }} />
+          );
+        }
+      })
+    } else if (this.props.filter == 'inCompleted') {
+      return this.props.notes.map((note) => {
+        if (note.complete == false) {
+          return (
+            <NoteItem note={note} key={note.id}
+              onCheckout={() => { this.props.checkoutNote(note.id) }}
+              onDelete={() => { this.props.deleteNote(note) }} />
+          );
+        }
+      })
+    }
   }
 
   render() {
@@ -43,7 +64,8 @@ class NoteList extends Component {
 
 function mapStateToProps(state) {
   return {
-    notes: state.notes
+    notes: state.notes,
+    filter: state.filter,
   }
 }
 
