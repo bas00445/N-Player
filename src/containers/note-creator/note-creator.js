@@ -66,12 +66,12 @@ class NoteCreator extends Component {
               <div style={{ marginBottom: 10 }}>
                 <TextField onChange={(event) => { this.handleTitleValue(event) }}
                   className="full-width"
-                  floatingLabelText="Input a title"
+                  floatingLabelText="Title"
                   value={this.state.titleValue}
                 />
                 <TextField onChange={(event) => { this.handleBodyValue(event) }}
                   className="full-width"
-                  floatingLabelText="Input a body"
+                  floatingLabelText="Body"
                 />
               </div>
               <div id="add-btn-container">
