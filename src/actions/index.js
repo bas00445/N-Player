@@ -1,27 +1,27 @@
 export const addNote = (note) => {
   return {
     type: 'ADD_NOTE',
-    payload: note
+    payload: { note }
   }
 }
 
-export const deleteNote = (noteID) => {
+export const deleteNote = (note) => {
   return {
     type: 'DELETE_NOTE',
-    payload: noteID
+    payload: { note }
   }
 }
 
 export const checkoutNote = (noteID) => {
   return {
     type: 'CHECKOUT_NOTE',
-    payload: noteID
+    payload: { noteID }
   }
 }
 
-export const setFilterType = (type) => {
+export const setFilterType = (filterType) => {
   return {
     type: 'SET_FILTER',
-    payload: type
+    payload: { filterType }
   }
 }

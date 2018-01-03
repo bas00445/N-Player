@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <Provider store={myStore}>
-          <div className={"container"}>
+          <div className={"container app-container"}>
             <NoteCreator />
             <NoteFilter />
             <NoteList />

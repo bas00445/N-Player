@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 // Actions
-import { checkoutNote, deleteNote } from '../../actions/index';
+import { checkoutNote, deleteNote } from '../../actions';
 
 // Material Components
 import { Card } from 'material-ui/Card';
@@ -25,7 +25,7 @@ class NoteList extends Component {
       return (
         <NoteItem note={note} key={note.id}
           onCheckout={() => { this.props.checkoutNote(note.id) }}
-          onDelete={() => { this.props.deleteNote(note.id) }} />
+          onDelete={() => { this.props.deleteNote(note) }} />
       );
     })
   }

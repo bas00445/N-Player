@@ -12,7 +12,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 // Actions
-import { addNote } from '../../actions/index';
+import { addNote } from '../../actions';
 
 class NoteCreator extends Component {
 
@@ -51,7 +51,7 @@ class NoteCreator extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('Next props:', nextProps);
+    console.log('Note-creator:', nextProps);
   }
 
   render() {
@@ -88,7 +88,7 @@ class NoteCreator extends Component {
 
 function mapStateToProps(state) {
   return {
-    notes: state.notes
+    notes: state.notes,
   }
 }
 

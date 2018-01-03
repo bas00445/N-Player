@@ -12,12 +12,16 @@ import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
 class NoteItem extends Component {
 
+  componentWillReceiveProps(nextProps) {
+    console.log('Note-item:', nextProps);
+  }
+
   render() {
     return (
       <div className="col-12 col-sm-12 col-md-6 col-lg-4">
         <Card className="card">
-
-          <div className="note-title">{this.props.note.title}</div>
+          
+          <h5 className="note-title">{this.props.note.title}</h5>
           <IconMenu className="note-menu"
             iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
             anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
@@ -34,5 +38,6 @@ class NoteItem extends Component {
     );
   }
 }
+
 
 export default NoteItem;
