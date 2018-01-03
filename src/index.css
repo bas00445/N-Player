@@ -24,6 +24,6 @@ body {
   flex-direction: column;
 }
 
-#root {
+body {
   background-color: #fafafa;
 }
